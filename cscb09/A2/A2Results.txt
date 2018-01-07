@@ -1,0 +1,1000 @@
+=======================================================================================================================================================
+StudentID: lutosla1
+
+===== Testing compilation and error messages =====
+Test 1: print_ftree with non-existing file should print an error message to the standard error:
+Invoking the following command:
+./print_ftree file_not_exists > /dev/null 2> stderr.log
+part1 T1: failed
+
+Test 2: Checking for incorrect include statements:
+part1 T2: passed
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ stat Makefile
+  File: `Makefile'
+  Size: 580       	Blocks: 0          IO Block: 262144 regular file
+Device: 20h/32d	Inode: 1610913732  Links: 1
+Access: (0644/-rw-r--r--)  Uid: (17489038/maneasso)   Gid: (656172/cscb09w17i)
+Access: 2017-03-20 06:48:14.687223000 -0400
+Modify: 2017-03-20 06:48:14.687719000 -0400
+Change: 2017-03-20 06:48:15.257306000 -0400
+ Birth: -
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+Makefile (644)
+
+===== Testing data structure correctness (filenames) =====
+errorComparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (Makefile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+errorComparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (Makefile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+errorComparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (Makefile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ stat special_fifo_file
+  File: `special_fifo_file'
+  Size: 0         	Blocks: 0          IO Block: 262144 fifo
+Device: 20h/32d	Inode: 1610915952  Links: 1
+Access: (0644/prw-r--r--)  Uid: (17489038/maneasso)   Gid: (656172/cscb09w17i)
+Access: 2017-03-20 06:48:15.993682000 -0400
+Modify: 2017-03-20 06:48:15.993682000 -0400
+Change: 2017-03-20 06:48:15.993682000 -0400
+ Birth: -
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+The printed outputs match!
+
+===== Testing data structure correctness (filenames) =====
+errorComparing the computed tree versus the expected tree ...
+The two trees are equal!
+
+===== Testing data structure correctness (permissions) =====
+errorComparing the computed tree versus the expected tree ...
+The two trees are equal!
+
+===== Testing data structure correctness (hash values) =====
+errorComparing the computed tree versus the expected tree ...
+The two trees are equal!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali EmptyDirectory
+EmptyDirectory:
+total 0
+1610916160 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== EmptyDirectory (755) =====
+
+===== Testing data structure correctness (filenames) =====
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (EmptyDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (EmptyDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (EmptyDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithOneFile
+DirWithOneFile:
+total 0
+1610917069 drwxr-sr-x 1 maneasso cscb09w17i   80 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610917070 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file1
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithOneFile (755) =====
+  file1 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithOneFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithOneFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithOneFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithFiles
+DirWithFiles:
+total 0
+1610913686 drwxr-sr-x 1 maneasso cscb09w17i  128 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610917749 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610917748 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610912139 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithFiles (755) =====
+  file1 (755)
+  file3 (444)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithFiles) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithFiles) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithFiles) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithDotFile
+DirWithDotFile:
+total 0
+1610916096 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610915951 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610912161 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 .file1
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithDotFile (755) =====
+  file1 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+.file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithDotFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+.file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithDotFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+.file1
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithDotFile) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithEmptySubDir
+DirWithEmptySubDir:
+total 0
+1610912162 drwxr-sr-x 1 maneasso cscb09w17i  156 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610914548 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptySubDir
+1610916188 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610914550 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610914549 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+
+DirWithEmptySubDir/EmptySubDir:
+total 0
+1610914548 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610912162 drwxr-sr-x 1 maneasso cscb09w17i 156 Mar 20 06:48 ..
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithEmptySubDir (755) =====
+  file1 (755)
+  file3 (444)
+  ===== EmptySubDir (755) =====
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+file3
+EmptySubDir
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithEmptySubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+file3
+EmptySubDir
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithEmptySubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+file3
+EmptySubDir
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithEmptySubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithSubDir
+DirWithSubDir:
+total 0
+1610914547 drwxr-sr-x 1 maneasso cscb09w17i   80 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610908841 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 SubDir
+
+DirWithSubDir/SubDir:
+total 0
+1610908841 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 .
+1610914547 drwxr-sr-x 1 maneasso cscb09w17i   80 Mar 20 06:48 ..
+1610916307 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file1
+1610917903 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithSubDir (755) =====
+  ===== SubDir (755) =====
+    file1 (644)
+    file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+SubDir
+file1
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+SubDir
+file1
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+SubDir
+file1
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSubDir) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithHardLink
+DirWithHardLink:
+total 0
+1610918397 drwxr-sr-x 1 maneasso cscb09w17i  156 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610902467 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610918398 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file2
+1610918396 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file3
+1610902467 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 linkToFile1
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithHardLink (755) =====
+  file1 (644)
+  linkToFile1 (644)
+  file3 (644)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+linkToFile1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+linkToFile1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+linkToFile1
+file3
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithHardLinks
+DirWithHardLinks:
+total 0
+1610918395 drwxr-sr-x 1 maneasso cscb09w17i  184 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610918394 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610916748 -rw-r--r-- 2 maneasso cscb09w17i  512 Mar 20 06:48 file2
+1610906113 -rw-r--r-- 2 maneasso cscb09w17i 4096 Mar 20 06:48 file3
+1610906113 -rw-r--r-- 2 maneasso cscb09w17i 4096 Mar 20 06:48 linkToFile3
+1610906114 drwxr-sr-x 1 maneasso cscb09w17i  152 Mar 20 06:48 SubDirectory
+
+DirWithHardLinks/SubDirectory:
+total 0
+1610906114 drwxr-sr-x 1 maneasso cscb09w17i  152 Mar 20 06:48 .
+1610918395 drwxr-sr-x 1 maneasso cscb09w17i  184 Mar 20 06:48 ..
+1610906115 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file3
+1610918394 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 linkToParentFile1
+1610916748 -rw-r--r-- 2 maneasso cscb09w17i  512 Mar 20 06:48 linkToParentFile2
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithHardLinks (755) =====
+  file1 (644)
+  linkToFile3 (644)
+  file3 (644)
+  ===== SubDirectory (755) =====
+    linkToParentFile1 (644)
+    file3 (644)
+    linkToParentFile2 (644)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+linkToFile3
+file3
+SubDirectory
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLinks) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+linkToFile3
+file3
+SubDirectory
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLinks) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+linkToFile3
+file3
+SubDirectory
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithHardLinks) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali DirWithSymbolicLink
+DirWithSymbolicLink:
+total 0
+1610915333 drwxr-sr-x 1 maneasso cscb09w17i  156 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610915332 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610912203 -rw-rw-rw- 1 maneasso cscb09w17i  512 Mar 20 06:48 file2
+1610912204 -r--r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file3
+1610902618 lrwxrwxrwx 1 maneasso cmsusers     22 Mar 20 06:48 symbolicLink -> ../DirWithSymbolicLink
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== DirWithSymbolicLink (755) =====
+  file1 (444)
+  file3 (444)
+  file2 (666)
+  symbolicLink (777)
+
+===== Testing data structure correctness (filenames) =====
+file1
+file3
+file2
+symbolicLink
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSymbolicLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+file3
+file2
+symbolicLink
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSymbolicLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+file3
+file2
+symbolicLink
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (DirWithSymbolicLink) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali TestDirectory
+TestDirectory:
+total 0
+1610918425 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610917080 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptyDirectory
+1610916688 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610916689 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610918424 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610903975 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 SubDirectory
+
+TestDirectory/EmptyDirectory:
+total 0
+1610917080 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610918425 drwxr-sr-x 1 maneasso cscb09w17i 188 Mar 20 06:48 ..
+
+TestDirectory/SubDirectory:
+total 0
+1610903975 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 .
+1610918425 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 ..
+1610903976 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file1
+1610914943 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file2
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== TestDirectory (755) =====
+  file1 (755)
+  ===== EmptyDirectory (755) =====
+  file3 (444)
+  ===== SubDirectory (755) =====
+    file1 (644)
+    file2 (644)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali TestDirectory2
+TestDirectory2:
+total 0
+1610914942 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610906841 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptyDirectory
+1610906838 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610909908 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610914521 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610909438 drwxr-sr-x 1 maneasso cscb09w17i  168 Mar 20 06:48 SubDirectory
+
+TestDirectory2/EmptyDirectory:
+total 0
+1610906841 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610914942 drwxr-sr-x 1 maneasso cscb09w17i 188 Mar 20 06:48 ..
+
+TestDirectory2/SubDirectory:
+total 0
+1610909438 drwxr-sr-x 1 maneasso cscb09w17i  168 Mar 20 06:48 .
+1610914942 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 ..
+1610909907 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file1
+1610916745 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file2
+1610915315 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 TestDirectory
+1610916113 drwxr-sr-x 1 maneasso cscb09w17i  160 Mar 20 06:48 TestSubDirectory
+
+TestDirectory2/SubDirectory/TestDirectory:
+total 0
+1610915315 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 .
+1610909438 drwxr-sr-x 1 maneasso cscb09w17i  168 Mar 20 06:48 ..
+1610904153 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptyDirectory
+1610917300 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610917089 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610917301 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610917303 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 SubDirectory
+
+TestDirectory2/SubDirectory/TestDirectory/EmptyDirectory:
+total 0
+1610904153 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610915315 drwxr-sr-x 1 maneasso cscb09w17i 188 Mar 20 06:48 ..
+
+TestDirectory2/SubDirectory/TestDirectory/SubDirectory:
+total 0
+1610917303 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 .
+1610915315 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 ..
+1610912197 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file1
+1610912380 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file2
+
+TestDirectory2/SubDirectory/TestSubDirectory:
+total 0
+1610916113 drwxr-sr-x 1 maneasso cscb09w17i  160 Mar 20 06:48 .
+1610909438 drwxr-sr-x 1 maneasso cscb09w17i  168 Mar 20 06:48 ..
+1610907544 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610907545 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610903415 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610903416 drwxr-sr-x 1 maneasso cscb09w17i  128 Mar 20 06:48 SubSubDirectory
+
+TestDirectory2/SubDirectory/TestSubDirectory/SubSubDirectory:
+total 0
+1610903416 drwxr-sr-x 1 maneasso cscb09w17i  128 Mar 20 06:48 .
+1610916113 drwxr-sr-x 1 maneasso cscb09w17i  160 Mar 20 06:48 ..
+1610907546 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610914036 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610917986 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== TestDirectory2 (755) =====
+  file1 (755)
+  ===== EmptyDirectory (755) =====
+  file3 (444)
+  ===== SubDirectory (755) =====
+    file1 (644)
+    file2 (644)
+    ===== TestDirectory (755) =====
+      file1 (755)
+      ===== EmptyDirectory (755) =====
+      file3 (444)
+      ===== SubDirectory (755) =====
+        file1 (644)
+        file2 (644)
+      file2 (644)
+    ===== TestSubDirectory (755) =====
+      file1 (755)
+      ===== SubSubDirectory (755) =====
+        file1 (755)
+        file3 (444)
+        file2 (644)
+      file3 (444)
+      file2 (644)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+file2
+file3
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory2) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+file2
+file3
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory2) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+file2
+file3
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (TestDirectory2) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+$ ls -Rali FullTestDirectory
+FullTestDirectory:
+total 0
+1610917702 drwxr-sr-x 1 maneasso cscb09w17i  216 Mar 20 06:48 .
+1610912254 drwxr-sr-x 1 maneasso cscb09w17i 1524 Mar 20 06:48 ..
+1610916883 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptyDirectory
+1610917700 -rwxr-xr-x 2 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610917403 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610903440 -r--r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610903440 -r--r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 linkToFile3
+1610903441 drwxr-sr-x 1 maneasso cscb09w17i  240 Mar 20 06:48 SubDirectory
+
+FullTestDirectory/EmptyDirectory:
+total 0
+1610916883 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610917702 drwxr-sr-x 1 maneasso cscb09w17i 216 Mar 20 06:48 ..
+
+FullTestDirectory/SubDirectory:
+total 0
+1610903441 drwxr-sr-x 1 maneasso cscb09w17i  240 Mar 20 06:48 .
+1610917702 drwxr-sr-x 1 maneasso cscb09w17i  216 Mar 20 06:48 ..
+1610903439 -rw-r--r-- 2 maneasso cscb09w17i  512 Mar 20 06:48 file1
+1610903437 -rw-r--r-- 2 maneasso cscb09w17i 4096 Mar 20 06:48 file2
+1610917700 -rwxr-xr-x 2 maneasso cscb09w17i 1024 Mar 20 06:48 linkToParentFile1
+1610917403 -rw-r--r-- 2 maneasso cscb09w17i 1024 Mar 20 06:48 linkToParentFile2
+1610903436 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 TestDirectory
+1610909807 drwxr-sr-x 1 maneasso cscb09w17i  232 Mar 20 06:48 TestSubDirectory
+
+FullTestDirectory/SubDirectory/TestDirectory:
+total 0
+1610903436 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 .
+1610903441 drwxr-sr-x 1 maneasso cscb09w17i  240 Mar 20 06:48 ..
+1610905776 drwxr-sr-x 1 maneasso cscb09w17i    0 Mar 20 06:48 EmptyDirectory
+1610903435 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610907274 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610905777 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610915912 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 SubDirectory
+
+FullTestDirectory/SubDirectory/TestDirectory/EmptyDirectory:
+total 0
+1610905776 drwxr-sr-x 1 maneasso cscb09w17i   0 Mar 20 06:48 .
+1610903436 drwxr-sr-x 1 maneasso cscb09w17i 188 Mar 20 06:48 ..
+
+FullTestDirectory/SubDirectory/TestDirectory/SubDirectory:
+total 0
+1610915912 drwxr-sr-x 1 maneasso cscb09w17i  104 Mar 20 06:48 .
+1610903436 drwxr-sr-x 1 maneasso cscb09w17i  188 Mar 20 06:48 ..
+1610912675 -rw-r--r-- 1 maneasso cscb09w17i  512 Mar 20 06:48 file1
+1610912676 -rw-r--r-- 1 maneasso cscb09w17i 4096 Mar 20 06:48 file2
+
+FullTestDirectory/SubDirectory/TestSubDirectory:
+total 0
+1610909807 drwxr-sr-x 1 maneasso cscb09w17i  232 Mar 20 06:48 .
+1610903441 drwxr-sr-x 1 maneasso cscb09w17i  240 Mar 20 06:48 ..
+1610909809 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610907334 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610907333 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610903439 -rw-r--r-- 2 maneasso cscb09w17i  512 Mar 20 06:48 linkToParentFile1
+1610903437 -rw-r--r-- 2 maneasso cscb09w17i 4096 Mar 20 06:48 linkToParentFile2
+1610907331 drwxr-sr-x 1 maneasso cscb09w17i  200 Mar 20 06:48 SubSubDirectory
+
+FullTestDirectory/SubDirectory/TestSubDirectory/SubSubDirectory:
+total 0
+1610907331 drwxr-sr-x 1 maneasso cscb09w17i  200 Mar 20 06:48 .
+1610909807 drwxr-sr-x 1 maneasso cscb09w17i  232 Mar 20 06:48 ..
+1610917401 -rwxr-xr-x 1 maneasso cscb09w17i 1024 Mar 20 06:48 file1
+1610917402 -rw-r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file2
+1610907332 -r--r--r-- 1 maneasso cscb09w17i 1024 Mar 20 06:48 file3
+1610907335 lrwxrwxrwx 1 maneasso cmsusers      3 Mar 20 06:48 symlinkToParent -> ../
+1610912550 lrwxrwxrwx 1 maneasso cmsusers      6 Mar 20 06:48 symlinkToParentsParent -> ../../
+
+===== Testing tree generation =====
+The printed outputs match!
+
+===== Testing tree printing =====
+[ERROR]: The printed output (using the student's solution) of the computed tree is different than the expected one ...
+[ERROR]: Computed output:
+yeboi
+[ERROR]: Expected output:
+===== FullTestDirectory (755) =====
+  file1 (755)
+  linkToFile3 (444)
+  ===== EmptyDirectory (755) =====
+  file3 (444)
+  ===== SubDirectory (755) =====
+    file1 (644)
+    linkToParentFile1 (755)
+    linkToParentFile2 (644)
+    file2 (644)
+    ===== TestDirectory (755) =====
+      file1 (755)
+      ===== EmptyDirectory (755) =====
+      file3 (444)
+      ===== SubDirectory (755) =====
+        file1 (644)
+        file2 (644)
+      file2 (644)
+    ===== TestSubDirectory (755) =====
+      file1 (755)
+      ===== SubSubDirectory (755) =====
+        file1 (755)
+        file3 (444)
+        symlinkToParent (777)
+        file2 (644)
+        symlinkToParentsParent (777)
+      linkToParentFile1 (644)
+      file3 (444)
+      linkToParentFile2 (644)
+      file2 (644)
+  file2 (644)
+
+===== Testing data structure correctness (filenames) =====
+file1
+linkToFile3
+EmptyDirectory
+file3
+SubDirectory
+file1
+linkToParentFile1
+linkToParentFile2
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+symlinkToParent
+file2
+symlinkToParentsParent
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (FullTestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (permissions) =====
+file1
+linkToFile3
+EmptyDirectory
+file3
+SubDirectory
+file1
+linkToParentFile1
+linkToParentFile2
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+symlinkToParent
+file2
+symlinkToParentsParent
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (FullTestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
+
+===== Testing data structure correctness (hash values) =====
+file1
+linkToFile3
+EmptyDirectory
+file3
+SubDirectory
+file1
+linkToParentFile1
+linkToParentFile2
+file2
+TestDirectory
+file1
+EmptyDirectory
+file3
+SubDirectory
+file1
+file2
+file2
+TestSubDirectory
+file1
+SubSubDirectory
+file1
+file3
+symlinkToParent
+file2
+symlinkToParentsParent
+linkToParentFile1
+file3
+linkToParentFile2
+file2
+file2
+Comparing the computed tree versus the expected tree ...
+[ERROR]: Expected a tree entry for (FullTestDirectory) but the computed tree points to NULL ...
+[ERROR]: The program terminated with an error!
