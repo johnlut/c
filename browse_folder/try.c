@@ -37,7 +37,7 @@ void walk_dir(char * root)
             printf("dir: %s\n", name);
         }
 
-        else if(S_ISREG(sb.st_mode))
+        else if(S_ISDIRSREG(sb.st_mode))
         {
             printf("file: %s\n", name);
         }
